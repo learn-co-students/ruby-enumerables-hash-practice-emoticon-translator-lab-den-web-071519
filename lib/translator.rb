@@ -6,19 +6,24 @@ def load_library(filePath)
   hash.each do |key, value|
     hashCopy['get_meaning'][value[1]] = key
     hashCopy['get_emoticon'][value[0]] = value[1]
-=begin
-    puts key
-    puts value[0]
-    puts value[1]
-=end
   end
   hashCopy
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon(filePath, emoticon)
+  hash = load_library(filePath)
+  if hash['get_emoticon'].include? emoticon
+    return hash['get_emoticon'][emoticon]
+  else
+    return "Sorry, that emoticon was not found"
+  end
 end
 
-def get_english_meaning
-  # code goes here
+def get_english_meaning(filePath, emoticon)
+  hash = load_library(filePath)
+  if hash['get_meaning'].include? emoticon
+    return hash['get_meaning'][emoticon]
+  else
+    return "Sorry, that emoticon was not found"
+  end
 end
