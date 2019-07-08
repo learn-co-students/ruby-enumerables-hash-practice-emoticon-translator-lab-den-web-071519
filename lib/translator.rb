@@ -31,6 +31,9 @@ end
 
 def get_english_meaning(yml, emoticon)
   list = load_library(yml)
-  
-  
+  if !list['get_meaning'][emoticon]
+    p "Sorry, that emoticon was not found"
+  else
+    list['get_meaning'][emoticon]
+  end
 end
