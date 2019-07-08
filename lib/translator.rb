@@ -21,10 +21,16 @@ def load_library(yml)
 end
 
 def get_japanese_emoticon(yml, emoticon)
-  load_library
-  
+  list = load_library(yml)
+  if !list['get_emoticon'][emoticon]
+    p "Sorry, that emoticon was not found"
+  else
+  list['get_emoticon'][emoticon]
+  end
 end
 
-def get_english_meaning
-  # code goes here
+def get_english_meaning(yml, emoticon)
+  list = load_library(yml)
+  
+  
 end
